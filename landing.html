@@ -16,21 +16,18 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(45deg, #1e1e1e, #3a3a3a, #5c5c5c);
-            background-size: 300% 300%;
-            animation: moveBackground 6s infinite alternate;
+            background: radial-gradient(circle, #222, #111);
             color: white;
             font-family: Arial, sans-serif;
-        }
-        @keyframes moveBackground {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            overflow: hidden;
+            position: relative;
         }
         .container {
-            max-width: 600px;
+            z-index: 2;
+            position: relative;
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
         }
         p {
@@ -47,20 +44,68 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            transition: 0.3s;
+            transition: 0.3s ease-in-out;
         }
         .enter-btn:hover {
             background: #45a049;
+            transform: scale(1.05);
+        }
+        /* Animated background particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: floatUp 8s infinite linear;
+        }
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh) scale(1);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Background Particles -->
+    <div class="particles"></div>
 
     <div class="container">
         <h1>Welcome to My Portfolio</h1>
         <p>Discover my journey in sports, tech, and creativity.</p>
         <a href="index.html" class="enter-btn">Enter Portfolio</a>
     </div>
+
+    <script>
+        // Generate background particles
+        function createParticles() {
+            const particleContainer = document.querySelector(".particles");
+            for (let i = 0; i < 30; i++) {
+                let particle = document.createElement("div");
+                particle.classList.add("particle");
+                let size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${Math.random() * 6 + 4}s`;
+                particleContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+    </script>
 
 </body>
 </html>
