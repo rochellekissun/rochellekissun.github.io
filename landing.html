@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle, #222, #111);
+            background: radial-gradient(circle, #181818, #0d0d0d); /* Dark background */
             color: white;
             font-family: Arial, sans-serif;
             overflow: hidden;
@@ -39,7 +39,7 @@
             padding: 15px 30px;
             font-size: 1.2rem;
             color: white;
-            background: #4CAF50;
+            background: #6a0dad; /* Deep purple button */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -47,10 +47,10 @@
             transition: 0.3s ease-in-out;
         }
         .enter-btn:hover {
-            background: #45a049;
+            background: #5a0db3; /* Slightly lighter purple hover effect */
             transform: scale(1.05);
         }
-        /* Floating animation effect */
+        /* Floating purple bubbles */
         .particles {
             position: absolute;
             top: 0;
@@ -62,7 +62,7 @@
         }
         .particle {
             position: absolute;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(138, 43, 226, 0.3); /* Soft purple color */
             border-radius: 50%;
             animation: floatUp 8s infinite linear;
         }
@@ -85,18 +85,18 @@
 
     <div class="container">
         <h1>Welcome to My Portfolio</h1>
-        <p>Discover my journey in sports, tech, and creativity.</p>
+        <p>Discover my journey in sports, fitness, leadership, and logistics.</p>
         <a href="homepage.html" class="enter-btn">Enter Portfolio</a>
     </div>
 
     <script>
-        // Generate background floating particles
+        // Generate background floating purple bubbles
         function createParticles() {
             const particleContainer = document.querySelector(".particles");
             for (let i = 0; i < 30; i++) {
                 let particle = document.createElement("div");
                 particle.classList.add("particle");
-                let size = Math.random() * 10 + 5;
+                let size = Math.random() * 12 + 6;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 particle.style.left = `${Math.random() * 100}vw`;
