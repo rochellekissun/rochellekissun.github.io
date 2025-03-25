@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Experience | Rochelle's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #181818, #0d0d0d); /* Dark background */
+            color: pink;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+        .container {
+            z-index: 2;
+            position: relative;
+            max-width: 800px;
+            padding: 20px;
+        }
+        .section {
+            background: #1e1e1e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .section:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+        .section h2 {
+            margin-bottom: 10px;
+        }
+        .hidden-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .section:hover .hidden-content {
+            max-height: 500px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .back-button:hover {
+            background: #45a049;
+        }
+        /* Floating purple bubbles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(138, 43, 226, 0.3);
+            border-radius: 50%;
+            animation: floatUp 8s infinite linear;
+        }
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Background Particles -->
+    <div class="particles"></div>
+
+    <div class="container">
+        <h1>My Work Experience</h1>
+
+        <!-- Sports & Fitness -->
+        <div class="section">
+            <h2>Sports & Fitness</h2>
+            <div class="hidden-content">
+                <p>**Coaching & Athlete Development**: I have trained and mentored athletes to develop their skills, focusing on fitness and mental toughness. My work involved creating personalized development plans, improving endurance, strength, and technique, and fostering a positive, competitive environment.</p>
+                <p>**Sports Management**: As a sports manager, I organized training schedules, coordinated events, and managed player performances. I was responsible for ensuring that everything ran smoothly during practice sessions and matches, dealing with logistics, and providing support to players when needed.</p>
+                <p>**Nutrition & Fitness Training**: I guided athletes in understanding the importance of nutrition in improving their performance. This included advising on meal plans and ensuring their fitness routines supported their long-term health and goals.</p>
+                <p>**Training Programs**: I developed structured training programs for various sports, targeting both the physical and mental aspects of performance. These programs were tailored to each individual based on their strengths and areas for improvement.</p>
+            </div>
+        </div>
+
+        <!-- E-Commerce & Retail -->
+        <div class="section">
+            <h2>E-Commerce & Retail</h2>
+            <div class="hidden-content">
+                <p>**Shopify Store Management**: I’ve successfully managed multiple e-commerce platforms, including Shopify. My role involved overseeing product listings, managing customer inquiries, and ensuring smooth order fulfillment.</p>
+                <p>**Product Listing & Inventory**: I was responsible for keeping the inventory accurate and up-to-date, adding new products to the store, and ensuring that everything listed was well-organized and presented to attract customers.</p>
+                <p>**Customer Orders & Fulfillment**: I managed the end-to-end process of customer orders, including processing payments, ensuring timely shipping, and handling any issues that arose with delivery or customer satisfaction.</p>
+            </div>
+        </div>
+
+        <!-- Warehousing & Logistics -->
+        <div class="section">
+            <h2>Warehousing & Logistics</h2>
+            <div class="hidden-content">
+                <p>**Leadership Roles**: I led teams in a fast-paced warehouse environment, ensuring everything from stock management to order fulfillment was efficient. My leadership helped streamline processes and improve team performance.</p>
+                <p>**Pick Packing & Order Fulfillment**: I coordinated and participated in the picking and packing of orders, ensuring accuracy and efficiency to meet tight deadlines and customer expectations.</p>
+                <p>**Inventory Management**: I managed inventory, ensuring that stock levels were monitored and replenished in a timely manner. I developed systems to minimize errors and prevent stockouts or excess inventory.</p>
+                <p>**Administrative Work**: I handled various administrative tasks, including data entry, tracking shipments, and updating internal systems to reflect inventory levels and orders processed.</p>
+            </div>
+        </div>
+
+        <!-- Customer Service & Sales -->
+        <div class="section">
+            <h2>Customer Service & Sales</h2>
+            <div class="hidden-content">
+                <p>**Client Engagement**: I have consistently engaged with customers to resolve inquiries, offer support, and ensure a positive experience, fostering long-term customer relationships and brand loyalty.</p>
+                <p>**Sales at Football Club**: I was responsible for helping promote and sell products at the football club I managed. This involved direct interaction with customers, understanding their needs, and making product recommendations.</p>
+                <p>**Problem-Solving**: I resolved customer issues, whether related to product returns, dissatisfaction, or order issues. I focused on finding solutions quickly to maintain a high level of customer satisfaction.</p>
+            </div>
+        </div>
+
+        <a href="homepage.html" class="back-button">⬅ Back to Home</a>
+    </div>
+
+    <script>
+        // Generate floating purple bubbles
+        function createParticles() {
+            const particleContainer = document.querySelector(".particles");
+            for (let i = 0; i < 30; i++) {
+                let particle = document.createElement("div");
+                particle.classList.add("particle");
+                let size = Math.random() * 12 + 6;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${Math.random() * 6 + 4}s`;
+                particleContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+    </script>
+
+</body>
+</html>
