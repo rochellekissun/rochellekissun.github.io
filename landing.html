@@ -11,16 +11,17 @@
             box-sizing: border-box;
         }
         body {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            font-family: Arial, sans-serif;
             background: radial-gradient(circle, #181818, #0d0d0d); /* Dark background */
             color: white;
-            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Vertically and horizontally center content */
+            height: 100vh; /* Full viewport height */
+            margin: 0;
             overflow-y: auto;
-            position: relative;
         }
         h1 {
             font-size: 3rem;
@@ -83,7 +84,8 @@
         <h1>Chasing Growth, On & Off the Field</h1>
         <p>Turning challenges into opportunities through sports, fitness, leadership, and logistics.</p>
 
-<a href="homepage.html" class="enter-btn">Enter Portfolio</a>    </div>
+        <a href="homepage.html" class="enter-btn">Enter Portfolio</a>
+    </div>
 
     <script>
         // Generate floating purple bubbles
