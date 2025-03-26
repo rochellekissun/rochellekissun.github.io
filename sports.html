@@ -12,20 +12,21 @@
         }
         body {
             font-family: Arial, sans-serif;
-            background: radial-gradient(circle, #181818, #0d0d0d); /* Dark background */
+            background: radial-gradient(circle, #181818, #0d0d0d);
             color: white;
             text-align: center;
-            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
+            height: 100%;
             overflow-y: auto;
+            padding: 20px;
         }
         h1 {
-            font-size: 3rem;
-            margin-bottom: 30px;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
         }
         .container {
             z-index: 2;
@@ -46,7 +47,7 @@
             top: 0;
             left: 50%;
             width: 2px;
-            background: #6a0dad; /* Purple line */
+            background: #000; /* Black timeline line */
             height: 100%;
             z-index: 1;
         }
@@ -57,6 +58,8 @@
             background: #1e1e1e;
             border-radius: 8px;
             z-index: 2;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
         }
         .timeline-item.left {
             margin-left: 50%;
@@ -78,8 +81,12 @@
         }
         .timeline-item .description {
             font-size: 1.2rem;
+            display: none;
         }
-        /* Floating purple bubbles */
+        .timeline-item:hover .description {
+            display: block;
+        }
+        /* Floating black particles */
         .particles {
             position: absolute;
             top: 0;
@@ -91,7 +98,7 @@
         }
         .particle {
             position: absolute;
-            background: rgba(138, 43, 226, 0.3);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 50%;
             animation: floatUp 8s infinite linear;
         }
@@ -105,6 +112,19 @@
                 opacity: 0;
             }
         }
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .back-button:hover {
+            background: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -117,72 +137,68 @@
 
         <!-- Timeline -->
         <div class="timeline">
-            <!-- 2016: Starting the Journey -->
+
             <div class="timeline-item left">
                 <div class="content">
-                    <div class="year">2016</div>
+                    <div class="year">2016: The Beginning</div>
                     <div class="description">
-                        <p>Started playing soccer after developing a huge interest in the sport, inspired by my idols Cristiano Ronaldo and Lionel Messi. Although I faced challenges and injuries, I pushed through and trained hard, focusing on strength and conditioning.</p>
+                        <p>Developed a passion for soccer, inspired by Cristiano Ronaldo & Lionel Messi. Faced early struggles with injuries and criticism but committed to improving. Started strength and conditioning training to enhance performance.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 2017: Growth and Coaching -->
             <div class="timeline-item right">
                 <div class="content">
-                    <div class="year">2017</div>
+                    <div class="year">2017: Dedication & Coaching</div>
                     <div class="description">
-                        <p>Spent a whole year training hard to outperform my teammates. Played various positions but enjoyed being a goalkeeper. I also discovered my passion for coaching and assisted in coaching my team and the senior team.</p>
+                        <p>Focused on intense training to surpass high school teammates. Played multiple positions but excelled as a goalkeeper, finishing the season undefeated. Took on assistant coaching roles for both the school and senior teams.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 2018: St Clair United SC -->
             <div class="timeline-item left">
                 <div class="content">
-                    <div class="year">2018</div>
+                    <div class="year">2018: Club Soccer & Challenges</div>
                     <div class="description">
-                        <p>Played as a midfielder for St Clair United SC, though I also performed well as a goalkeeper. Unfortunately, I suffered a shoulder injury but continued playing for the high school team, which had a fantastic season.</p>
+                        <p>Played for St Clair United SC as a midfielder but preferred goalkeeping. Suffered a shoulder injury but continued playing for the high school team, leading to a strong season.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 2019: Penrith FC and High School Graduation -->
             <div class="timeline-item right">
                 <div class="content">
-                    <div class="year">2019</div>
+                    <div class="year">2019: Fresh Start & High School Finale</div>
                     <div class="description">
-                        <p>Joined Penrith FC for a fresh start, and we had an excellent season. We reached the finals but lost 1-0 to Glenmore Park FC. It was also my final year with the high school team. Graduating was bittersweet, but I promised to return to win the grand final one day.</p>
+                        <p>Joined Penrith FC, had a great season, and reached the grand finals (lost 1-0 to Glenmore Park FC). Faced setbacks but used the experience as motivation. Played the final season with the high school team before graduating.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 2020-2023: Coaching and Development -->
             <div class="timeline-item left">
                 <div class="content">
-                    <div class="year">2020-2023</div>
+                    <div class="year">2020-2023: Coaching & Further Development</div>
                     <div class="description">
-                        <p>Post-graduation, I spent time training and coaching at local clubs. In 2021, I coached at Blacktown Workers FC with the U16 girls D1 team. Despite the pandemic, I continued studying coaching and sports team management.</p>
+                        <p>Dedicated time to coaching and training at local soccer clubs. In 2021, coached Blacktown Workers FC U16 Girls D1 team, reaching near-finals before COVID lockdown. Studied sports coaching & management to further career development.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 2024: Grand Final Victory and New Challenges -->
             <div class="timeline-item right">
                 <div class="content">
-                    <div class="year">2024</div>
+                    <div class="year">2024: The Comeback & New Challenges</div>
                     <div class="description">
-                        <p>Rejoined St Marys FC as a goalkeeper for the AAW D5 team and led them to victory in the grand final, winning 3-0. I also ventured into gridiron with Nepean Ducks as a wide receiver, despite not knowing the sport well, but enjoyed the challenge.</p>
+                        <p>Rejoined St Marys FC as a goalkeeper, leading the team to a 3-0 grand final victory. Stepped out of comfort zone and joined Nepean Ducks Gridiron Club as a wide receiver, enjoying the challenge of learning a new sport.</p>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <a href="homepage.html" class="back-button">⬅ Back to Home</a>
     </div>
 
     <script>
-        // Generate floating purple bubbles
+        // Generate floating black particles
         function createParticles() {
             const particleContainer = document.querySelector(".particles");
             for (let i = 0; i < 30; i++) {
