@@ -18,26 +18,25 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             position: relative;
             height: 100%;
             overflow-y: auto;
             padding: 20px;
         }
         h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 20px;
         }
         .container {
             z-index: 2;
             position: relative;
-            max-width: 800px;
+            max-width: 900px;
             padding: 20px;
         }
-        /* Timeline styles */
+        /* Timeline Container */
         .timeline {
             position: relative;
-            width: 80%;
             max-width: 800px;
             margin: 50px auto;
         }
@@ -46,45 +45,70 @@
             position: absolute;
             top: 0;
             left: 50%;
-            width: 2px;
-            background: #000; /* Black timeline line */
+            width: 4px;
+            background: linear-gradient(to bottom, #000, #6a0dad);
             height: 100%;
             z-index: 1;
+            animation: glowLine 2s infinite alternate;
         }
+        @keyframes glowLine {
+            from { box-shadow: 0 0 10px #6a0dad; }
+            to { box-shadow: 0 0 20px #6a0dad; }
+        }
+        /* Timeline Items */
         .timeline-item {
             position: relative;
+            width: 45%;
             padding: 20px;
-            margin: 10px 0;
-            background: #1e1e1e;
-            border-radius: 8px;
-            z-index: 2;
-            transition: all 0.3s ease-in-out;
-            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.6s ease-in-out;
+            box-shadow: 0px 5px 15px rgba(106, 13, 173, 0.3);
         }
         .timeline-item.left {
-            margin-left: 50%;
+            left: 0;
             text-align: right;
         }
         .timeline-item.right {
-            margin-right: 50%;
+            left: 55%;
             text-align: left;
         }
-        .timeline-item .content {
-            background-color: #333;
-            border-radius: 8px;
-            padding: 10px 20px;
+        .timeline-item.show {
+            transform: translateY(0);
+            opacity: 1;
         }
-        .timeline-item .year {
-            font-size: 1.5rem;
-            font-weight: bold;
+        .timeline-item h2 {
+            color: #6a0dad;
+            font-size: 1.8rem;
             margin-bottom: 10px;
         }
-        .timeline-item .description {
+        .timeline-item p {
             font-size: 1.2rem;
-            display: none;
+            line-height: 1.5;
         }
-        .timeline-item:hover .description {
-            display: block;
+        /* Glowing Dots */
+        .dot {
+            position: absolute;
+            top: 15px;
+            left: -20px;
+            width: 15px;
+            height: 15px;
+            background: #6a0dad;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #6a0dad;
+            animation: pulse 1.5s infinite;
+        }
+        .timeline-item.right .dot {
+            left: auto;
+            right: -20px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 1; }
         }
         /* Floating black particles */
         .particles {
@@ -103,15 +127,10 @@
             animation: floatUp 8s infinite linear;
         }
         @keyframes floatUp {
-            from {
-                transform: translateY(100vh) scale(0.5);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-10vh) scale(1);
-                opacity: 0;
-            }
+            from { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            to { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
+        /* Back Button */
         .back-button {
             display: inline-block;
             margin-top: 30px;
@@ -137,68 +156,47 @@
 
         <!-- Timeline -->
         <div class="timeline">
-
             <div class="timeline-item left">
-                <div class="content">
-                    <div class="year">2016: The Beginning</div>
-                    <div class="description">
-                        <p>Developed a passion for soccer, inspired by Cristiano Ronaldo & Lionel Messi. Faced early struggles with injuries and criticism but committed to improving. Started strength and conditioning training to enhance performance.</p>
-                    </div>
-                </div>
+                <div class="dot"></div>
+                <h2>2016: The Beginning</h2>
+                <p>Fell in love with soccer, inspired by Ronaldo & Messi. Trained hard despite injuries and early struggles.</p>
             </div>
 
             <div class="timeline-item right">
-                <div class="content">
-                    <div class="year">2017: Dedication & Coaching</div>
-                    <div class="description">
-                        <p>Focused on intense training to surpass high school teammates. Played multiple positions but excelled as a goalkeeper, finishing the season undefeated. Took on assistant coaching roles for both the school and senior teams.</p>
-                    </div>
-                </div>
+                <div class="dot"></div>
+                <h2>2017: Dedication & Coaching</h2>
+                <p>Intense training led to success as a goalkeeper. Discovered coaching and assisted in training teams.</p>
             </div>
 
             <div class="timeline-item left">
-                <div class="content">
-                    <div class="year">2018: Club Soccer & Challenges</div>
-                    <div class="description">
-                        <p>Played for St Clair United SC as a midfielder but preferred goalkeeping. Suffered a shoulder injury but continued playing for the high school team, leading to a strong season.</p>
-                    </div>
-                </div>
+                <div class="dot"></div>
+                <h2>2018: Club Soccer & Challenges</h2>
+                <p>Played for St Clair United SC as a midfielder and goalkeeper. Suffered a shoulder injury but continued playing.</p>
             </div>
 
             <div class="timeline-item right">
-                <div class="content">
-                    <div class="year">2019: Fresh Start & High School Finale</div>
-                    <div class="description">
-                        <p>Joined Penrith FC, had a great season, and reached the grand finals (lost 1-0 to Glenmore Park FC). Faced setbacks but used the experience as motivation. Played the final season with the high school team before graduating.</p>
-                    </div>
-                </div>
+                <div class="dot"></div>
+                <h2>2019: Fresh Start & High School Finale</h2>
+                <p>Joined Penrith FC, reached grand finals but lost 1-0. Graduated and ended high school soccer journey.</p>
             </div>
 
             <div class="timeline-item left">
-                <div class="content">
-                    <div class="year">2020-2023: Coaching & Further Development</div>
-                    <div class="description">
-                        <p>Dedicated time to coaching and training at local soccer clubs. In 2021, coached Blacktown Workers FC U16 Girls D1 team, reaching near-finals before COVID lockdown. Studied sports coaching & management to further career development.</p>
-                    </div>
-                </div>
+                <div class="dot"></div>
+                <h2>2020-2023: Coaching & Development</h2>
+                <p>Coached local teams, studied coaching & management. Led Blacktown Workers U16 Girls D1 to near-finals.</p>
             </div>
 
             <div class="timeline-item right">
-                <div class="content">
-                    <div class="year">2024: The Comeback & New Challenges</div>
-                    <div class="description">
-                        <p>Rejoined St Marys FC as a goalkeeper, leading the team to a 3-0 grand final victory. Stepped out of comfort zone and joined Nepean Ducks Gridiron Club as a wide receiver, enjoying the challenge of learning a new sport.</p>
-                    </div>
-                </div>
+                <div class="dot"></div>
+                <h2>2024: The Comeback & New Challenges</h2>
+                <p>Returned to play for St Marys FC, winning the grand final 3-0. Joined Nepean Ducks in gridiron as a wide receiver.</p>
             </div>
-
         </div>
 
         <a href="homepage.html" class="back-button">⬅ Back to Home</a>
     </div>
 
     <script>
-        // Generate floating black particles
         function createParticles() {
             const particleContainer = document.querySelector(".particles");
             for (let i = 0; i < 30; i++) {
@@ -213,6 +211,15 @@
             }
         }
         createParticles();
+
+        const items = document.querySelectorAll(".timeline-item");
+        window.addEventListener("scroll", function () {
+            items.forEach(item => {
+                if (item.getBoundingClientRect().top < window.innerHeight - 50) {
+                    item.classList.add("show");
+                }
+            });
+        });
     </script>
 
 </body>
