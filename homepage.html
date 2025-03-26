@@ -18,14 +18,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Vertically and horizontally center content */
-            height: 100vh; /* Full viewport height */
-            margin: 0;
+            justify-content: center;
+            height: 100vh;
             overflow-y: auto;
+            padding: 20px;
         }
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         p {
             font-size: 1.2rem;
@@ -33,23 +33,25 @@
             max-width: 600px;
         }
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
+            display: block;
+            width: 250px;
+            padding: 15px;
+            margin: 10px auto;
             font-size: 1.2rem;
             color: white;
-            background: #ff4081; /* Pink button */
+            background: #ff4081; /* Pink buttons */
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            text-align: center;
             transition: 0.3s;
-            margin: 10px;
         }
         .btn:hover {
             background: #e73370;
             transform: scale(1.05);
         }
-        /* Floating pink bubbles */
+        /* Floating pink particles */
         .particles {
             position: absolute;
             top: 0;
@@ -66,14 +68,8 @@
             animation: floatUp 8s infinite linear;
         }
         @keyframes floatUp {
-            from {
-                transform: translateY(100vh) scale(0.5);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-10vh) scale(1);
-                opacity: 0;
-            }
+            from { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            to { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
     </style>
 </head>
@@ -86,13 +82,13 @@
         <h1>Welcome to My Portfolio</h1>
         <p>Explore my journey in sports, fitness, leadership, and logistics.</p>
 
+        <!-- Fixed buttons with correct links -->
         <a href="experience.html" class="btn">My Experience</a>
         <a href="sports.html" class="btn">My Sports Journey</a>
         <a href="mailto:your-email@example.com" class="btn">Email Me</a>
     </div>
 
     <script>
-        // Generate floating pink bubbles
         function createParticles() {
             const particleContainer = document.querySelector(".particles");
             for (let i = 0; i < 30; i++) {
